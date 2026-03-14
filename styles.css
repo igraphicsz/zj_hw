@@ -1,0 +1,450 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #e74c3c;
+    --accent-color: #3498db;
+    --text-color: #333;
+    --light-bg: #f8f9fa;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--white);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 152, 219, 0.8) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    opacity: 0.95;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.author-info {
+    font-size: 1rem;
+    opacity: 0.85;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.author-info .separator {
+    margin: 0 15px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-align: center;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 30px;
+    border-right: 2px solid var(--white);
+    border-bottom: 2px solid var(--white);
+    transform: rotate(45deg);
+    margin: 0 auto;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+.main-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.blog-article {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 60px 50px;
+    box-shadow: var(--shadow-lg);
+    margin-top: -100px;
+    position: relative;
+    z-index: 10;
+}
+
+.intro {
+    text-align: center;
+    padding-bottom: 40px;
+    border-bottom: 2px solid var(--light-bg);
+    margin-bottom: 50px;
+}
+
+.intro .greeting {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.intro p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.intro .highlight {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    font-style: italic;
+    margin: 25px 0;
+}
+
+.content-section {
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.content-section:last-child {
+    border-bottom: none;
+}
+
+.section-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--light-bg);
+    line-height: 1;
+    margin-bottom: -20px;
+    position: relative;
+    z-index: 0;
+}
+
+.content-section h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.content-section p {
+    font-size: 1.05rem;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.content-section em {
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+.content-section strong {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.callout {
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+    border-left: 4px solid var(--secondary-color);
+    padding: 25px 30px;
+    margin: 30px 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.callout.question {
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+    border-left-color: var(--accent-color);
+}
+
+.callout p {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.callout p:last-child {
+    margin-bottom: 0;
+}
+
+.figure-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.figure {
+    background: var(--light-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.figure:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.figure.large {
+    grid-column: 1 / -1;
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.figure.large img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.image-placeholder {
+    height: 180px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 500;
+    text-align: center;
+    padding: 20px;
+}
+
+.figure.large .image-placeholder {
+    height: 250px;
+}
+
+.figure .caption {
+    padding: 15px;
+    font-size: 0.9rem;
+    color: #666;
+    text-align: center;
+    font-style: italic;
+}
+
+.references {
+    background: var(--light-bg);
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 50px;
+}
+
+.references h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.references ol {
+    padding-left: 20px;
+}
+
+.references li {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.7;
+}
+
+.references a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.references a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--primary-color);
+    color: var(--white);
+    margin-top: 60px;
+}
+
+.footer p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 500px;
+        background-attachment: scroll;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .author-info {
+        font-size: 0.9rem;
+    }
+    
+    .author-info .separator {
+        display: none;
+    }
+    
+    .author-info span {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .blog-article {
+        padding: 40px 25px;
+        margin-top: -50px;
+        border-radius: 15px;
+    }
+    
+    .section-number {
+        font-size: 3rem;
+    }
+    
+    .content-section h2 {
+        font-size: 1.4rem;
+    }
+    
+    .intro .greeting {
+        font-size: 1.4rem;
+    }
+    
+    .intro .highlight {
+        font-size: 1.1rem;
+    }
+    
+    .figure-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .references {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .blog-article {
+        padding: 30px 20px;
+    }
+    
+    .section-number {
+        font-size: 2.5rem;
+    }
+    
+    .content-section h2 {
+        font-size: 1.2rem;
+    }
+    
+    .callout {
+        padding: 20px;
+    }
+}
